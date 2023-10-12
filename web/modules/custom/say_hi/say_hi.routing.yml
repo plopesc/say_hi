@@ -1,0 +1,23 @@
+say_hi.hi:
+  path: "/hi"
+  defaults:
+    _title: "Hi folks!"
+    _form: 'Drupal\say_hi\Form\HiForm'
+  requirements:
+    _permission: "access content"
+
+say_hi.hi_batch:
+  path: "/hi-batch"
+  defaults:
+    _title: "Hi folks! (Batch Mode)"
+    _form: 'Drupal\say_hi\Form\HiBatchForm'
+  requirements:
+    _permission: "access content"
+
+say_hi.hi_queue:
+  path: "/hi-queue"
+  defaults:
+    _title: "Hi folks! (Queue Mode)"
+    _form: 'Drupal\say_hi\Form\HiQueueForm'
+  requirements:
+    _permission: "access content"

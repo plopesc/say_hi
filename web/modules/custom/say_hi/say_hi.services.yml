@@ -1,0 +1,4 @@
+services:
+  say_hi.greetings:
+    class: Drupal\say_hi\Greetings
+    arguments: ["@entity_type.manager", "@plugin.manager.mail"]
