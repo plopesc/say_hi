@@ -1,5 +1,5 @@
 name: Say Hi
 type: module
-description: Provides additional functionality for the site.
+description: "Send a warm 'hi' to the world."
 package: Custom
 core_version_requirement: ^9 || ^10

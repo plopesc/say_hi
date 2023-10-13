@@ -3,15 +3,14 @@
 namespace Drupal\say_hi\Form;
 
 use Drupal\Component\Datetime\Time;
-use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\say_hi\Greetings;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a Say Hello form.
+ * Provides a basic Say Hi form.
  */
-class HiForm extends FormBase {
+class HiForm extends HiFormBase {
 
   /**
    * Constructs a new say hello form.
@@ -42,36 +41,6 @@ class HiForm extends FormBase {
    */
   public function getFormId() {
     return 'say_hi_hi';
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function buildForm(array $form, FormStateInterface $form_state) {
-
-    $form['name'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Name'),
-      '#default_value' => 'test',
-      '#required' => TRUE,
-    ];
-
-    $form['message'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('Message'),
-      '#default_value' => 'test',
-      '#required' => TRUE,
-    ];
-
-    $form['actions'] = [
-      '#type' => 'actions',
-    ];
-    $form['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Send'),
-    ];
-
-    return $form;
   }
 
   /**

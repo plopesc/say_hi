@@ -8,12 +8,12 @@ use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a Say Hello form.
+ * Provides a Say Hi form based on Batch API
  */
-class HiBatchForm extends FormBase {
+class HiBatchForm extends HiFormBase {
 
   /**
-   * Constructs a new say hello form.
+   * Constructs a new Say Hi form.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager.
@@ -37,36 +37,6 @@ class HiBatchForm extends FormBase {
    */
   public function getFormId() {
     return 'say_hi_hi_batch';
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function buildForm(array $form, FormStateInterface $form_state) {
-
-    $form['name'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Name'),
-      '#default_value' => 'test',
-      '#required' => TRUE,
-    ];
-
-    $form['message'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('Message'),
-      '#default_value' => 'test',
-      '#required' => TRUE,
-    ];
-
-    $form['actions'] = [
-      '#type' => 'actions',
-    ];
-    $form['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Send'),
-    ];
-
-    return $form;
   }
 
   /**

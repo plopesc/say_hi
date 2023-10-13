@@ -4,7 +4,6 @@ namespace Drupal\say_hi\Form;
 
 use Drupal\Component\Datetime\Time;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Queue\QueueFactory;
 use Drupal\say_hi\GreetingQueueItem;
@@ -12,9 +11,9 @@ use Drupal\say_hi\Greetings;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a Say Hello form.
+ * Provides a Say Hi form based on Queue API.
  */
-class HiQueueForm extends FormBase {
+class HiQueueForm extends HiFormBase {
 
   /**
    * Constructs a new say hello form.
@@ -53,36 +52,6 @@ class HiQueueForm extends FormBase {
    */
   public function getFormId() {
     return 'say_hi_hi_queue';
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function buildForm(array $form, FormStateInterface $form_state) {
-
-    $form['name'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Name'),
-      '#default_value' => 'test',
-      '#required' => TRUE,
-    ];
-
-    $form['message'] = [
-      '#type' => 'textarea',
-      '#title' => $this->t('Message'),
-      '#default_value' => 'test',
-      '#required' => TRUE,
-    ];
-
-    $form['actions'] = [
-      '#type' => 'actions',
-    ];
-    $form['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Send'),
-    ];
-
-    return $form;
   }
 
 /**
